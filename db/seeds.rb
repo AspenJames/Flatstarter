@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do
+25.times do
   User.create(
     :name => Faker::Name.unique.name
   )
 end
 
-5.times do
+15.times do
   Project.create(
-    :name => Faker::App.name,
+    :name => Faker::App.unique.name,
     :creator => User.all.sample
   )
 end
 
-7.times do
+20.times do
   Backing.create(
     :backer => User.all.sample,
     :project => Project.all.sample,
