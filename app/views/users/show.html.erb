@@ -1,0 +1,17 @@
+<h1><%= @user.name %></h1>
+
+<h3>Created Projects</h3>
+
+<ul>
+  <% @user.created_projects.each do |proj| %>
+    <li><a href="<%= project_path(proj) %>"><%= proj.name %></a></li>
+  <% end %>
+</ul>
+
+<h3>Supported Projects</h3>
+
+<ul>
+  <% @user.backings.each do |back| %>
+    <li>Backed <a href="<%= project_path(back.project)%>"><%= back.project.name %></a> for $<%= back.amount %></li>
+  <% end %>
+</ul>

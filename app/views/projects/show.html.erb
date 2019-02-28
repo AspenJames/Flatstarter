@@ -1,0 +1,11 @@
+<h1><%= @project.name %></h1>
+
+<p> Created by <a href='<%= user_path(@project.creator) %>'><%= @project.creator.name %></a> </p>
+
+<h3> Backers </h3>
+
+<ul>
+  <% @project.backers.each do |backer| %>
+    <li><a href="<%= user_path(backer) %>"><%= backer.name %></a></li>
+  <% end %>
+</ul>

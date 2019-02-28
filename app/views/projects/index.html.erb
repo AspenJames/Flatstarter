@@ -1,1 +1,6 @@
-<h1></h1>
+<h1>Projects Index</h1>
+<ul>
+  <% @projects.each do |proj| %>
+    <li><a href="<%= project_path(proj) %>"><%= proj.name %></a></li>
+  <% end %>
+</ul>
