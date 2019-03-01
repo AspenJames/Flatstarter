@@ -1,0 +1,18 @@
+<h1>New Backing Form</h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
+<%= form_for @backing do |f| %>
+  <%= f.label "Project" %>
+  <%= f.collection_select :project_id, Project.all, :id, :name %>
+
+  <%= f.label "Find your name" %>
+  <%= f.collection_select :backer_id, User.all, :id, :name %>
+
+  <%= f.label :amount %>
+  <%= f.number_field :amount %>
+
+  <%= f.submit %>
+<% end %>

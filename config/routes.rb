@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :projects, :only => %i(index show)
   resources :users, :only => %i(index show)
-  resources :backings, :only => %i(index)
+  # /users => users#index users_path
+  # /user/:id => users#show user_path(instance of user)
+  resources :backings, :only => %i(index new create)
+  # /backings => backings#index backings_path
 
 end

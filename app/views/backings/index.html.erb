@@ -1,6 +1,6 @@
 <h1>Backings Index</h1>
 <ul>
   <% @backings.each do |back| %>
-    <li><a href='<%= user_path(back.backer) %>'><%= back.backer.name %></a> supported <a href='<%= project_path(back.project) %>'><%= back.project.name %></a> for $<%= back.amount %> <%= "- isn't that neat?" if back.amount.odd? %> </li>
+    <li><a href='<%= user_path(back.backer) %>'><%= back.backer.name %></a> supported <a href='<%= project_path(back.project) %>'><%= back.project.name %></a> for $<%= back.amount %> <%= "WOW!" if back.amount > 1000000 %> </li>
   <% end %>
 </ul>

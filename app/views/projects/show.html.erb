@@ -3,9 +3,27 @@
 <p> Created by <a href='<%= user_path(@project.creator) %>'><%= @project.creator.name %></a> </p>
 
 <h3> Backers </h3>
+<% if @project.backers.length == 0 %>
+  <p> Be the first to back this project! </p>
+  <%= link_to "Back project", new_backing_path %>
+<% else %>
 
 <ul>
   <% @project.backers.each do |backer| %>
     <li><a href="<%= user_path(backer) %>"><%= backer.name %></a></li>
   <% end %>
 </ul>
+<% end %>
+
+
+<%= form_for @backing do |f| %>
+
+  <%= f.hidden_field :project_id, :value => @project.id %>
+  <%= f.label "Find you name" %>
+  <%= f.collection_select :backer_id, User.all, :id, :name %>
+
+  <%= f.label :amount %>
+  <%= f.number_field :amount %>
+
+  <%= f.submit %>
+<% end %>

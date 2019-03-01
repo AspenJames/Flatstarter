@@ -1,5 +1,10 @@
 <h1><%= @user.name %></h1>
 
+
+
+<% if @user.created_projects.length == 0 %>
+  <p> you haven't created any projects yet! </p>
+<% else %>
 <h3>Created Projects</h3>
 
 <ul>
@@ -7,6 +12,8 @@
     <li><a href="<%= project_path(proj) %>"><%= proj.name %></a></li>
   <% end %>
 </ul>
+
+<% end %>
 
 <h3>Supported Projects</h3>
 

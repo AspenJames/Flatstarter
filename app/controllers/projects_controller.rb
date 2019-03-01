@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     set_project
+    @backing = Backing.new
   end
 
   private
